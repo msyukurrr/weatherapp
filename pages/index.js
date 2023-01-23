@@ -59,28 +59,20 @@ export default function Home() {
             return(
               <div className={styles.weatherbox} key={index}>
                 {(typeof w.main != "undefined") ? (
-                <div className={styles.word}>
-                  <div className={styles.city}>{data.name}, {data.sys.country}</div>
-                  <div className={styles.description}>{w.description}</div>
-                  <div className={styles.weather}>{w.main}</div>
-               <div className={styles.tempbox}>
-                 <div className={styles.box1}>
-                    <div className={styles.maintemp}>Temperature</div>
+                  <>
+                  <div className={styles.top}>
+                    <div className={styles.city}>{data.name}, {data.sys.country}</div>
+                    <div className={styles.description}>{w.description}</div>
+                    <div className={styles.weather}>{w.main}</div>
+                  </div>
+                  <div className={styles.bottom}>
                     <div className={styles.temp}>{Math.round(data.main.temp)}°C</div>
+                    <hr className={styles.solid}></hr>
+                    <div className={styles.feelslike}>Feels like: {Math.round(data.main.feels_like)}°C</div>
+                    <div className={styles.speed}>Wind speed: {data.wind.speed}m/s</div>
                   </div>
-                  <div className={styles.box2}>
-                    <div className={styles.feeltext}>Feels Like</div>
-                    <div className={styles.feelslike}>{Math.round(data.main.feels_like)}°C</div>
-                  </div>
-              </div>
-                  <div className={styles.box3}>
-                    <div className={styles.wind}>Wind Speed</div>
-                    <div className={styles.speed}>{data.wind.speed}m/s</div>
-                  </div>
-              </div>
+                    </>
                 ) : ('')}
-               
-      
               </div>
             )
           })
